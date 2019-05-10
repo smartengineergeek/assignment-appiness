@@ -6,7 +6,14 @@ import { connect } from 'react-redux';
 
 import EmployeeList from '../EmployeeList/EmployeeList';
 import Login from '../Login/Login';
+import Dashboard from '../Dashboard/Dashboard';
 
+const SecuredRotes = () => (
+  <React.Fragment>
+    <Route path="/employeeList" component={EmployeeList} />
+    <Route path="/dashboard" component={Dashboard} />
+  </React.Fragment>
+)
 const App = (props) => {
   console.log(props.isUserAuthenticated)
   return(
@@ -14,7 +21,7 @@ const App = (props) => {
       <Switch>
         <Route exact path="/" component={Login} />
         {
-          props.isUserAuthenticated ? <Route path="/employeeList" component={EmployeeList} /> : null
+          props.isUserAuthenticated ? <SecuredRotes /> : null
         }
         <Route render={() => <div><center>Page Not Found</center></div>} />
     </Switch>

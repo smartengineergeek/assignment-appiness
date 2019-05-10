@@ -14,7 +14,8 @@ class Login extends React.Component{
         
         if(username === "hruday@gmail.com" && password === "hruday123"){
             this.props.onloginUser(true);
-            this.props.history.push('/employeeList');
+            // this.props.history.push('/employeeList');
+            this.props.history.push('/dashboard');
         }
     }
     render(){
