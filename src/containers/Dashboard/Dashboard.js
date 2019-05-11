@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import { userData } from './data';
+import './Dashboard.css';
 
 class Dashboard extends React.Component{    
-    headers = Object.keys(userData[0]);
+    headers = Object.keys(this.props.employeeListData[0]);
     tableHeader = () => (
         <thead>
             <tr>
@@ -14,8 +15,8 @@ class Dashboard extends React.Component{
     cellRenderer = () => (
         <tbody>
             {
-                userData.map(user => (
-                    <tr>
+                this.props.employeeListData.map(user => (
+                    <tr key={user.id}>
                         <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.age}</td>
@@ -29,14 +30,17 @@ class Dashboard extends React.Component{
     )
     render(){
         return(
-            <React.Fragment>
-                    <table>
-                        {this.tableHeader()}
-                        {this.cellRenderer()}
-                    </table>                
-            </React.Fragment>
+            <table id="employees">
+                {this.tableHeader()}
+                {this.cellRenderer()}
+            </table>                
         )
     }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return{
+        employeeListData: state.employeeListReducer.employeeListData
+    }
+}
+export default connect(mapStateToProps)(Dashboard);

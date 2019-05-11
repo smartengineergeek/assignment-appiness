@@ -1,4 +1,4 @@
-export const userData = [
+export const employeeListData = [
     {
        "id":1,
        "name":"test1",

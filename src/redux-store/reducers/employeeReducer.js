@@ -1,18 +1,20 @@
 import * as actionTypes from '../actions';
 
+import { employeeListData }  from './employeeListData';
+
 const intialState = {
-    isUserAuthenticated: false
+    employeeListData: employeeListData
 };
 
 const reducer = (state=intialState, action) => {
     switch(action.type){
-        case actionTypes.LOGIN: 
+        case actionTypes.EMPLOYEE:
             return{
-                isUserAuthenticated: action.value
+                employeeListData: action.value
             }
-        default:
+        default: 
             return state;
-    }
+    }    
 }
 
 export default reducer;

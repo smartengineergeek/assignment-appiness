@@ -1,11 +1,7 @@
 import React from 'react';
 
-class EmployeeList extends React.Component{
-    render(){
-        return(
-            <div>EmployeeList</div>
-        )
-    }
-}
+import Dashboard from '../Dashboard/Dashboard';
+
+const EmployeeList = () => (<Dashboard />);
 
 export default EmployeeList;

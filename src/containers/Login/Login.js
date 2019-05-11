@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../redux-store/actions';
+import { Credentials } from './Credentials';
 
 class Login extends React.Component{
     constructor(props){
@@ -12,18 +13,17 @@ class Login extends React.Component{
         let username = this.inputUsernameRef.current.value;
         let password = this.inputPasswordRef.current.value;
         
-        if(username === "hruday@gmail.com" && password === "hruday123"){
+        if(username === Credentials.username && password === Credentials.password){
             this.props.onloginUser(true);
-            // this.props.history.push('/employeeList');
-            this.props.history.push('/dashboard');
+            this.props.history.push('/employeeList');
         }
     }
     render(){
         return(
             <div>
                 <ul style={{listStyleType: "none"}}>
-                    <li>Username <input type='text' value="hruday@gmail.com" ref={this.inputUsernameRef} /></li>
-                    <li>Password <input type='password' value="hruday123" ref={this.inputPasswordRef} /></li>
+                    <li>Username <input type='text'  ref={this.inputUsernameRef} /></li>
+                    <li>Password <input type='password'  ref={this.inputPasswordRef} /></li>
                     <li><button onClick={() => this.clickHandler()}>Login</button></li>
                 </ul>                
             </div>

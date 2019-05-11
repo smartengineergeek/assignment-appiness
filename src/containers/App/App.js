@@ -4,18 +4,13 @@ import './App.css';
 import { Route, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import EmployeeList from '../EmployeeList/EmployeeList';
 import Login from '../Login/Login';
-import Dashboard from '../Dashboard/Dashboard';
+import EmployeeList from '../EmployeeList/EmployeeList';
 
-const SecuredRotes = () => (
-  <React.Fragment>
-    <Route path="/employeeList" component={EmployeeList} />
-    <Route path="/dashboard" component={Dashboard} />
-  </React.Fragment>
-)
+const SecuredRotes = () => (<Route path="/employeeList" component={EmployeeList} />);
+
 const App = (props) => {
-  console.log(props.isUserAuthenticated)
+  // console.log(props.isUserAuthenticated)
   return(
     <div className="App">
       <Switch>
@@ -31,7 +26,7 @@ const App = (props) => {
 
 const mapStateToProps = state => {
   return{
-    isUserAuthenticated: state.isUserAuthenticated
+    isUserAuthenticated: state.loginReducer.isUserAuthenticated
   }
 }
 
