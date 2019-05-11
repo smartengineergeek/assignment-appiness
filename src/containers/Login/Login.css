@@ -1,0 +1,14 @@
+.login-page{
+    width: 430px;
+    height: 230px;
+    background-color: #fff;
+    padding: 20px;
+    left: 30%;
+    top: 30%;
+    border: solid 1px #DCDCDC;
+    border-radius: 3px;
+    position: fixed;
+}
+.error{
+    color: #ff0000;
+}

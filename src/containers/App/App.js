@@ -15,10 +15,14 @@ const App = (props) => {
     <div className="App">
       <Switch>
         <Route exact path="/" component={Login} />
+        <Route path="/login" component={Login} />
         {
           props.isUserAuthenticated ? <SecuredRotes /> : null
         }
-        <Route render={() => <div><center>Page Not Found</center></div>} />
+        <Route render={() => <div className="not-found">
+                                <center>
+                                  <h1>404 Page Not Found</h1>
+                                </center></div>} />
     </Switch>
     </div>
   )
