@@ -34,7 +34,11 @@ class Login extends React.Component{
                     <li>Username <input type='text'  ref={this.inputUsernameRef} /></li>
                     <li>Password <input type='password'  ref={this.inputPasswordRef} /></li>
                     <li><button onClick={() => this.clickHandler()}>Login</button></li>
-                </ul>                
+                </ul> 
+                <center>{
+                    "username":"hruday@gmail.com", 
+                    "password":"hruday123"
+                }</center>
                 {
                     this.state.isLoginDetailsCorrect ? <div className="error">Either Username or Password is incorrect. Please Check.</div>: null
                 }
